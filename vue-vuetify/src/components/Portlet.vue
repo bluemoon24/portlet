@@ -1,39 +1,81 @@
 <script setup lang="ts">
+import { reactive } from 'vue'
+
 defineProps<{
   msg: string
 }>()
+
+const config = reactive({
+  noheader: false,
+  nomenu: true,
+  pid: 'gallery-barchart-simple-waterfall',
+})
+
+const items = reactive([
+  'gallery-barchart-simple-roi-chart',
+  'gallery-barchart-simple-waterfall',
+  'gallery-timeline-scrolling',
+  'gallery-scatter-matrix',
+  'gallery-worldmap',
+  'gallery-leaflet-routes',
+])
 </script>
 
 <template>
   <div>
-    <v-card>
-      <v-card-title>{{ msg }}</v-card-title>
-      <v-card-text> This is a portlet component. </v-card-text>
+    <v-card class="portlet-container">
+      <v-card-title class="text-center">{{ msg }}</v-card-title>
+
+      <v-toolbar density="compact" color="grey-lighten-4">
+        <v-checkbox
+          v-model="config.noheader"
+          label="noheader"
+          hide-details
+          density="compact"
+          color="primary"
+        />
+        <v-checkbox
+          v-model="config.nomenu"
+          label="nomenu"
+          hide-details
+          density="compact"
+          color="primary"
+        />
+        <v-select
+          v-model="config.pid"
+          :items="items"
+          label="Select an example"
+          hide-details
+          density="compact"
+          variant="outlined"
+          style="min-width: 150px; margin-left: 16px"
+        />
+      </v-toolbar>
+
+      <v-card class="portlet-content" variant="outlined">
+        <portlet-ce :noheader="config.noheader" :pid="config.pid"></portlet-ce>
+      </v-card>
     </v-card>
   </div>
 </template>
 
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
+.portlet-container {
+  width: 800px;
+  height: 800px;
+  display: flex;
+  flex-direction: column;
 }
 
-h3 {
-  font-size: 1.2rem;
+/* Add spacing between checkboxes */
+:deep(.v-toolbar .v-checkbox) {
+  margin-right: 16px;
 }
 
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
+/* Visible border around portlet-ce */
+.portlet-content {
+  margin: 8px;
+  flex: 1;
+  border: 2px solid rgba(0, 0, 0, 0.2) !important;
 }
 </style>

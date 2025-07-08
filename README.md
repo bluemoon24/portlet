@@ -17,4 +17,3 @@ npx degit bluemoon24/portlet/vue-vuetify my-vuetify-project
 ```bash
 npx degit bluemoon24/portlet/vue-quasar my-quasar-project
 ```
-Contributor: lothar

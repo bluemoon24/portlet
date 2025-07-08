@@ -1,6 +1,6 @@
 # vue-vuetify
 
-This template should help get you started developing with Vue 3 in Vite.
+This template should help get you started developing with Portlet in Vue 3, Vite and Vuetify.
 
 ## Recommended IDE Setup
 
