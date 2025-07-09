@@ -7,7 +7,7 @@ defineProps<{
 
 const config = reactive({
   noheader: false,
-  nomenu: true,
+  nomenu: false,
   pid: 'gallery-barchart-simple-roi-chart',
 })
 
@@ -43,7 +43,12 @@ const items = reactive([
       </q-toolbar>
 
       <q-card class="portlet-content" bordered>
-        <portlet-ce :noheader="config.noheader" :pid="config.pid" height="600px"></portlet-ce>
+        <portlet-ce
+          :noheader="config.noheader"
+          :nomenu="config.nomenu"
+          :pid="config.pid"
+          height="600px"
+        ></portlet-ce>
       </q-card>
     </q-card>
   </div>

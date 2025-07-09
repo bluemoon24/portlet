@@ -22,3 +22,11 @@ Then execute
 cd <your project> directory
 pnpm install
 ```
+
+```bash
+python3 -m http.server 8000
+```
+
+```bash
+npx http-server -p 8000
+```
