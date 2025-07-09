@@ -1,26 +1,68 @@
 <script setup lang="ts">
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
 import Portlet from './components/Portlet.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Viz-it logo" class="logo" src="./assets/viz-it.svg" width="250" height="250" />
+  <v-app>
+    <v-container class="pa-6" style="max-width: 1400px">
+      <div class="custom-row">
+        <!-- Left Column -->
+        <div class="custom-col">
+          <v-card class="pa-6 left-panel" elevation="2">
+            <div class="text-center">
+              <img
+                alt="Viz-it logo"
+                class="logo"
+                src="./assets/viz-it.svg"
+                width="250"
+                height="250"
+              />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+              <div class="wrapper">
+                <HelloWorld msg="You did it!" />
+              </div>
+            </div>
+          </v-card>
+        </div>
 
-  <main>
-    <Portlet msg="Welcome to your Portlet App" />
-  </main>
+        <!-- Right Column -->
+        <div class="custom-col">
+          <v-card class="pa-6 right-panel" elevation="2">
+            <Portlet msg="Welcome to your Portlet App" />
+          </v-card>
+        </div>
+      </div>
+    </v-container>
+  </v-app>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+.custom-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.custom-col {
+  flex: 1;
+  min-width: 300px;
+}
+
+.left-panel {
+  background: #ffffff;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+}
+
+.right-panel {
+  background: #f8f8f8;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: hidden;
 }
 
 .logo {
@@ -28,21 +70,22 @@ header {
   margin: 0 auto 2rem;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.wrapper {
+  display: flex;
+  place-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .custom-row {
+    flex-direction: column;
   }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  .custom-col {
+    flex: none;
   }
 }
 </style>

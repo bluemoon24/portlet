@@ -7,25 +7,45 @@ defineProps<{
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
+    <h3 class="subtitle">
+      You've successfully created a
+      <a
+        href="https://dev.viz-it.int.bayer.com/webserver/portletce-docs/"
+        target="_blank"
+        rel="noopener"
+        >Viz-it Portlet</a
+      >
+      project with <br />
       <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a> +
       <a href="https://vuetifyjs.com/" target="_blank" rel="noopener">Vuetify</a>.
+      <p class="mt-4">
+        Visit the
+        <a href="https://dev.viz-it.int.bayer.com/webserver/gallery/" target="_blank" rel="noopener"
+          >Portlet Gallery</a
+        >
+        for more portlet examples.
+      </p>
     </h3>
   </div>
 </template>
 
 <style scoped>
 h1 {
-  font-weight: 500;
+  font-weight: 300;
   font-size: 2.6rem;
   position: relative;
   top: -10px;
+  color: rgb(134, 205, 27);
 }
 
 h3 {
   font-size: 1.2rem;
+}
+
+.subtitle {
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 .greetings h1,

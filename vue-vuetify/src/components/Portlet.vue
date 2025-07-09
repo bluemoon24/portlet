@@ -8,7 +8,7 @@ defineProps<{
 const config = reactive({
   noheader: false,
   nomenu: true,
-  pid: 'gallery-barchart-simple-waterfall',
+  pid: 'gallery-barchart-simple-roi-chart',
 })
 
 const items = reactive([
@@ -53,7 +53,7 @@ const items = reactive([
       </v-toolbar>
 
       <v-card class="portlet-content" variant="outlined">
-        <portlet-ce :noheader="config.noheader" :pid="config.pid"></portlet-ce>
+        <portlet-ce :noheader="config.noheader" :pid="config.pid" height="600px"></portlet-ce>
       </v-card>
     </v-card>
   </div>
@@ -61,15 +61,11 @@ const items = reactive([
 
 <style scoped>
 .portlet-container {
-  width: 800px;
-  height: 800px;
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
-}
-
-/* Add spacing between checkboxes */
-:deep(.v-toolbar .v-checkbox) {
-  margin-right: 16px;
 }
 
 /* Visible border around portlet-ce */
@@ -77,5 +73,6 @@ const items = reactive([
   margin: 8px;
   flex: 1;
   border: 2px solid rgba(0, 0, 0, 0.2) !important;
+  width: calc(100% - 16px);
 }
 </style>
